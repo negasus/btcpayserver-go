@@ -8,7 +8,7 @@ API https://docs.btcpayserver.org/API/Greenfield/v1/
 
 ## Install
 
-```go
+```bash
 go get github.com/negasus/btcpayserver-go
 ```
 
