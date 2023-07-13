@@ -19,8 +19,8 @@ func Test_checkSig(t *testing.T) {
 	sig := "sha256=36edeacd744b12d9e8619361b9b7674d7df1cd7e566749d3994d8e0a7341c038"
 	secret := "123"
 
-	ok := checkSig(sig, secret, body)
+	ok := CheckSigHeader(sig, secret, body)
 	if !ok {
-		t.Error("checkSig failed")
+		t.Error("CheckSigHeader failed")
 	}
 }

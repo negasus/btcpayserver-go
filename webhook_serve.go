@@ -17,7 +17,7 @@ import (
 
 type WebhookHandler func(event *models.WebhookEvent)
 
-func checkSig(sig string, secret string, body []byte) bool {
+func CheckSigHeader(sig string, secret string, body []byte) bool {
 	if !strings.HasPrefix(sig, "sha256=") {
 		return false
 	}
@@ -49,7 +49,7 @@ func (c *Webhook) handler(secret string, handler WebhookHandler) http.HandlerFun
 			return
 		}
 
-		if !checkSig(sig, secret, body) {
+		if !CheckSigHeader(sig, secret, body) {
 			rw.WriteHeader(http.StatusUnauthorized)
 			return
 		}
