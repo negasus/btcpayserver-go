@@ -17,6 +17,7 @@ type Client struct {
 
 	APIKeys  *APIKeys
 	Invoices *Invoices
+	Stores   *Stores
 	Webhooks *Webhook
 }
 
@@ -30,6 +31,7 @@ func New(server, token string) *Client {
 
 	c.APIKeys = &APIKeys{requestFunc: c.request}
 	c.Invoices = &Invoices{requestFunc: c.request}
+	c.Stores = &Stores{requestFunc: c.request}
 	c.Webhooks = &Webhook{requestFunc: c.request}
 
 	return c
