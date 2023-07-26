@@ -15,7 +15,7 @@ func (c *Client) request(method, path string, query url.Values, payload any, des
 		return fmt.Errorf("failed to join path: %w", errJoinPath)
 	}
 
-	if query != nil && len(query) > 0 {
+	if len(query) > 0 {
 		u += "?" + query.Encode()
 	}
 

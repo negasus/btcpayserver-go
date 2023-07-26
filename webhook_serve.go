@@ -72,7 +72,7 @@ func (c *Webhook) Serve(ctx context.Context, ln net.Listener, secret string, han
 
 	go func() {
 		<-ctx.Done()
-		server.Shutdown(context.Background())
+		server.Shutdown(context.Background()) // nolint: errcheck
 	}()
 
 	errServe := server.Serve(ln)
